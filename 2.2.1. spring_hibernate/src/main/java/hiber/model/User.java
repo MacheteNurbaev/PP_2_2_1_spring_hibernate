@@ -6,6 +6,10 @@ import javax.persistence.*;
 @Table(name = "users")
 public class User {
 
+   @OneToOne
+   @JoinColumn(name = "id")
+   private Car car;
+
    @Id
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
