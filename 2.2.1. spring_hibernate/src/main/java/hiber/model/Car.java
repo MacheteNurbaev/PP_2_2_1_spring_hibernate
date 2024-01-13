@@ -6,7 +6,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -14,12 +13,9 @@ import javax.persistence.Table;
 @Table(name = "cars")
 public class Car {
 
-    @OneToOne()
-    @MapsId
-    @JoinColumn(name = "id")
-    private User user;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
 
@@ -27,15 +23,15 @@ public class Car {
     private String model;
 
     @Column(name = "series")
-    private int series;
+    private Integer series;
 
-    public Car() {}
+    public Car() {
+    }
 
     public Car(String model, int series) {
         this.model = model;
         this.series = series;
     }
-
 
 
     public String getModel() {
